@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frankonia Trading Cards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="https://www.instagram.com/frankonia_trading_cards/" 
+   target="_blank" 
+   class="floating-insta">
+   Instagram
+</a>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="section hero">
+  <img src="logo.png" class="logo" id="logo">
+  <h1>Frankonia Trading Cards</h1>
+</section>
+
+<div class="trust">
+  <p>✔️ 100% Originalkarten</p>
+  <p>📦 Sicherer Versand</p>
+  <p>⭐ Top bewertet auf eBay</p>
+</div>
+
+<!-- SHOP -->
+<section id="shop" class="section shop">
+  <h2>Shop</h2>
+
+  <div class="card-grid" id="cardGrid"></div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt" class="section">
+  <h2>Kontakt</h2>
+  
+  <p>Folge uns auf Instagram</p>
+
+  <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank" class="insta-button">
+    Zu unserem Instagram
+  </a>
+  
+  <a href="mailto:frankoniatradingcards@gmail.com?subject=Anfrage Trading Card&body=Hallo, ich interessiere mich für folgende Karte:" class="mail-button">
+    📧 Schreib uns eine Mail
+  </a>
+</section>
+
+<script>
+const cards = [
+  {
+    name: "Malik Nabers",
+    image: "MalikNabers.jpg",
+    details: "Rookie • Pink Parallel • 2023 Mosaic",
+    price: "49,99€",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Taylor Rapp",
+    image: "TaylorRapp.jpg",
+    details: "Red Parallel • 2023 Mosaic",
+    price: "49,99€",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Breece Hall",
+    image: "BreeceHall.jpg",
+    details: "Autograph • 2024 Select",
+    price: "49,99€",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  }
+];
+
+const cardGrid = document.getElementById("cardGrid");
+
+cards.forEach(card => {
+  cardGrid.innerHTML += `
+    <div class="card">
+      <div class="card-inner">
+
+        <div class="card-front">
+          <img src="${card.image}" alt="${card.name}">
+          <h3>${card.name}</h3>
+        </div>
+
+        <div class="card-back">
+          <h3>${card.name}</h3>
+          <p>${card.details}</p>
+          <p>${card.price}</p>
+
+          <a href="${card.ebay}" target="_blank">
+            <button>Auf eBay ansehen</button>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  `;
+});
+
+const logo = document.getElementById("logo");
+
+window.addEventListener("scroll", () => {
+  let scrollY = window.scrollY;
+
+  logo.style.transform = `
+    translateY(${scrollY * 0.2}px)
+    scale(${1 + scrollY * 0.0003})
+  `;
+});
+</script>
+
+</body>
+</html>
