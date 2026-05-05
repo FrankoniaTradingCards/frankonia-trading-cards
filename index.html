@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Frankonia Trading Cards</title>
+  <meta name="description" content="Frankonia Trading Cards – originale Sportkarten, sichere Abwicklung und starke Sammlerstücke.">
+
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
 </head>
+
 <body>
 
 <a href="https://www.instagram.com/frankonia_trading_cards/" 
@@ -19,14 +25,29 @@
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#shop">Shop</a></li>
+    <li><a href="#hall">Hall of Fame</a></li>
+    <li><a href="#about">Über uns</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
 </nav>
 
 <!-- HOME -->
 <section id="home" class="section hero">
-  <img src="logo.png" class="logo" id="logo">
+  <div class="hero-badge">✦ Football Cards. Fair. Sicher. Frankonia.</div>
+
+  <img src="logo.png" class="logo" id="logo" alt="Frankonia Trading Cards Logo">
+
   <h1>Frankonia Trading Cards</h1>
+
+  <p class="hero-text">
+    Originale Sportkarten, faire Deals und sicherer Versand.
+    Kein überladener Shop – klare Karten, klare Abwicklung.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#shop" class="hero-button red">Zum Shop</a>
+    <a href="#kontakt" class="hero-button dark">Karte anfragen</a>
+  </div>
 </section>
 
 <div class="trust">
@@ -38,24 +59,121 @@
 <!-- SHOP -->
 <section id="shop" class="section shop">
   <h2>Shop</h2>
+  <p class="section-subline">
+    Aktuelle Karten mit Flip-Effekt, Details und direkter Weiterleitung zu eBay.
+  </p>
 
   <div class="card-grid" id="cardGrid"></div>
 </section>
 
+<!-- HALL OF FAME -->
+<section id="hall" class="section hall-section">
+  <h2>Hall of Fame</h2>
+  <p class="section-subline">
+    Highlights aus der Sammlung – hier kannst du später deine besten Karten präsentieren.
+  </p>
+
+  <div class="stripe">
+    <div class="stripe-track" id="hallStripe"></div>
+  </div>
+</section>
+
+<!-- ÜBER UNS -->
+<section id="about" class="section about-section">
+  <h2>Über uns</h2>
+
+  <div class="about-grid">
+    <div class="about-box">
+      <h3>Sammler zuerst. Verkäufer danach.</h3>
+      <p>
+        Frankonia Trading Cards kommt aus echter Sammelleidenschaft.
+        Für uns zählen Zustand, Echtheit, faire Preise und eine saubere Kommunikation.
+      </p>
+    </div>
+
+    <div class="about-box">
+      <h3>Karten sind mehr als Pappe.</h3>
+      <p>
+        Rookie-Karten, Autographs, Patches, Parallels oder persönliche Lieblingsspieler:
+        Jede starke Karte hat ihre eigene Geschichte.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- KONTAKT -->
-<section id="kontakt" class="section">
+<section id="kontakt" class="section kontakt-section">
   <h2>Kontakt</h2>
   
-  <p>Folge uns auf Instagram</p>
+  <p>Folge uns auf Instagram oder schreib uns direkt eine Mail.</p>
 
-  <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank" class="insta-button">
-    Zu unserem Instagram
-  </a>
-  
-  <a href="mailto:frankoniatradingcards@gmail.com?subject=Anfrage Trading Card&body=Hallo, ich interessiere mich für folgende Karte:" class="mail-button">
-    📧 Schreib uns eine Mail
-  </a>
+  <div class="kontakt-buttons">
+    <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank" class="insta-button">
+      Zu unserem Instagram
+    </a>
+    
+    <a href="mailto:frankoniatradingcards@gmail.com?subject=Anfrage Trading Card&body=Hallo, ich interessiere mich für folgende Karte:" class="mail-button">
+      📧 Schreib uns eine Mail
+    </a>
+  </div>
+
+  <form id="contactForm" class="contact-form">
+    <label>
+      Name
+      <input name="name" autocomplete="name" placeholder="Dein Name" required>
+    </label>
+
+    <label>
+      E-Mail
+      <input name="email" type="email" autocomplete="email" placeholder="name@mail.de" required>
+    </label>
+
+    <label>
+      Interesse
+      <select name="interest">
+        <option>Karte kaufen</option>
+        <option>Karte verkaufen</option>
+        <option>Allgemeine Frage</option>
+      </select>
+    </label>
+
+    <label>
+      Nachricht
+      <textarea name="message" placeholder="Worum geht es?" required></textarea>
+    </label>
+
+    <button class="submit-button" type="submit">Nachricht vorbereiten</button>
+
+    <p class="form-note">
+      Das Formular öffnet dein Mailprogramm mit einer vorbereiteten Nachricht.
+    </p>
+  </form>
 </section>
+
+<!-- FOOTER -->
+<footer class="legal-footer">
+  <div class="legal-footer-inner">
+    <p><strong>Frankonia Trading Cards</strong> · Rechtliches & Kontakt</p>
+
+    <div class="legal-links">
+      <button class="legal-link" type="button" data-modal="impressum">Impressum</button>
+      <button class="legal-link" type="button" data-modal="datenschutz">Datenschutz</button>
+      <button class="legal-link" type="button" data-modal="kontakt">Kontakt</button>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" aria-hidden="true">
+  <div class="legal-modal">
+    <div class="legal-modal-header">
+      <h2 id="legalModalTitle">Rechtliche Informationen</h2>
+      <button class="modal-close" type="button" id="legalModalClose" aria-label="Modal schließen">×</button>
+    </div>
+
+    <div class="legal-modal-body" id="legalModalBody"></div>
+  </div>
+</div>
 
 <script>
 const cards = [
@@ -118,6 +236,192 @@ window.addEventListener("scroll", () => {
     translateY(${scrollY * 0.2}px)
     scale(${1 + scrollY * 0.0003})
   `;
+});
+
+/* HALL OF FAME */
+const hallOfFame = [
+  "Malik Nabers",
+  "Taylor Rapp",
+  "Breece Hall Auto",
+  "Case Hit",
+  "Low Numbered /10",
+  "Rookie Grail",
+  "Autograph Gem",
+  "Patch Monster"
+];
+
+const hallStripe = document.getElementById("hallStripe");
+
+function renderHallStripe() {
+  hallStripe.innerHTML = [...hallOfFame, ...hallOfFame].map(item => `
+    <span class="stripe-item">🏆 ${item}</span>
+  `).join("");
+}
+
+renderHallStripe();
+
+/* KONTAKTFORMULAR */
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const data = new FormData(contactForm);
+
+  const subject = encodeURIComponent(`Anfrage Frankonia Trading Cards: ${data.get("interest")}`);
+
+  const body = encodeURIComponent(
+`Name: ${data.get("name")}
+E-Mail: ${data.get("email")}
+Interesse: ${data.get("interest")}
+
+Nachricht:
+${data.get("message")}`
+  );
+
+  window.location.href = `mailto:frankoniatradingcards@gmail.com?subject=${subject}&body=${body}`;
+});
+
+/* RECHTLICHE MODALS */
+const legalModal = document.getElementById("legalModal");
+const legalModalTitle = document.getElementById("legalModalTitle");
+const legalModalBody = document.getElementById("legalModalBody");
+const legalModalClose = document.getElementById("legalModalClose");
+
+const legalContent = {
+  impressum: {
+    title: "Impressum",
+    body: `
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>
+        <strong>Frankonia Trading Cards</strong><br>
+        Vorname Nachname<br>
+        Straße Hausnummer<br>
+        PLZ Ort<br>
+        Deutschland
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>
+        E-Mail:
+        <a href="mailto:frankoniatradingcards@gmail.com">
+          frankoniatradingcards@gmail.com
+        </a><br>
+        Instagram:
+        <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank">
+          @frankonia_trading_cards
+        </a>
+      </p>
+
+      <h3>Verantwortlich für den Inhalt</h3>
+      <p>Vorname Nachname, Anschrift wie oben.</p>
+
+      <p class="legal-note">
+        Wichtig: Bitte vor Veröffentlichung deine echten Pflichtangaben eintragen.
+      </p>
+    `
+  },
+
+  datenschutz: {
+    title: "Datenschutzerklärung",
+    body: `
+      <h3>1. Verantwortlicher</h3>
+      <p>
+        Verantwortlich für diese Website ist Frankonia Trading Cards.
+        Kontakt: frankoniatradingcards@gmail.com
+      </p>
+
+      <h3>2. Allgemeine Hinweise</h3>
+      <p>
+        Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung
+        der Website, zur Bearbeitung von Anfragen oder zur Abwicklung von Verkäufen
+        erforderlich ist.
+      </p>
+
+      <h3>3. Kontaktaufnahme</h3>
+      <p>
+        Wenn du uns per E-Mail, Formular oder Instagram kontaktierst, verarbeiten wir
+        deine Angaben zur Bearbeitung deiner Anfrage.
+      </p>
+
+      <h3>4. Externe Links</h3>
+      <p>
+        Diese Website kann Links zu externen Plattformen wie Instagram oder eBay enthalten.
+        Beim Anklicken gelten die Datenschutzbestimmungen des jeweiligen Anbieters.
+      </p>
+
+      <h3>5. Cookies und Tracking</h3>
+      <p>
+        Diese statische Website verwendet aktuell keine eigenen Tracking-Cookies.
+      </p>
+
+      <p class="legal-note">
+        Hinweis: Diese Datenschutzerklärung ist eine Vorlage und ersetzt keine Rechtsberatung.
+      </p>
+    `
+  },
+
+  kontakt: {
+    title: "Kontakt",
+    body: `
+      <h3>Frankonia Trading Cards</h3>
+      <p>
+        Für Fragen zu Karten, Verkäufen, Ankauf oder Versand erreichst du uns über:
+      </p>
+
+      <h3>E-Mail</h3>
+      <p>
+        <a href="mailto:frankoniatradingcards@gmail.com">
+          frankoniatradingcards@gmail.com
+        </a>
+      </p>
+
+      <h3>Instagram</h3>
+      <p>
+        <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank">
+          @frankonia_trading_cards
+        </a>
+      </p>
+    `
+  }
+};
+
+function openLegalModal(type) {
+  const content = legalContent[type];
+
+  if (!content) return;
+
+  legalModalTitle.textContent = content.title;
+  legalModalBody.innerHTML = content.body;
+  legalModal.classList.add("active");
+  legalModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLegalModal() {
+  legalModal.classList.remove("active");
+  legalModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll("[data-modal]").forEach(button => {
+  button.addEventListener("click", () => {
+    openLegalModal(button.dataset.modal);
+  });
+});
+
+legalModalClose.addEventListener("click", closeLegalModal);
+
+legalModal.addEventListener("click", e => {
+  if (e.target === legalModal) {
+    closeLegalModal();
+  }
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && legalModal.classList.contains("active")) {
+    closeLegalModal();
+  }
 });
 </script>
 
