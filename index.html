@@ -25,6 +25,7 @@
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#shop">Shop</a></li>
+	<li><a href="#ankauf">Ankauf</a></li>
     <li><a href="#hall">Hall of Fame</a></li>
     <li><a href="#about">Über uns</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
@@ -89,15 +90,98 @@
     Aktuelle Karten mit Flip-Effekt, Details und direkter Weiterleitung zu eBay.
   </p>
 
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-filter="Alle">Alle</button>
+    <button class="filter-btn" data-filter="Rookie">Rookies</button>
+    <button class="filter-btn" data-filter="Autograph">Autographs</button>
+    <button class="filter-btn" data-filter="Patch">Patches</button>
+    <button class="filter-btn" data-filter="Parallel">Parallels</button>
+    <button class="filter-btn" data-filter="Verfügbar">Verfügbar</button>
+    <button class="filter-btn" data-filter="Reserviert">Reserviert</button>
+    <button class="filter-btn" data-filter="Verkauft">Verkauft</button>
+  </div>
+
   <div class="card-grid" id="cardGrid"></div>
+</section>
+
+<section id="ankauf" class="section ankauf-section">
+  <h2>Wir kaufen auch Karten an</h2>
+
+  <p class="section-subline">
+    Du hast NFL-Karten, die du verkaufen möchtest? Schreib uns kurz, was du hast.
+    Besonders interessant sind Rookies, Autographs, Patches, nummerierte Karten und Graded Cards.
+  </p>
+
+  <div class="ankauf-grid">
+    <div class="ankauf-box">🏈 NFL Cards</div>
+    <div class="ankauf-box">✍️ Autographs</div>
+    <div class="ankauf-box">🧵 Patch Cards</div>
+    <div class="ankauf-box">⭐ Rookies</div>
+    <div class="ankauf-box">🔢 Low Numbered</div>
+    <div class="ankauf-box">🛡️ PSA / Graded Cards</div>
+	<div class="ankauf-box">LA Rams</div>
+	<div class="ankauf-box">Houston Texans</div>
+	<div class="ankauf-box">Tampa Bay Buccaneers</div>
+  </div>
+
+  <a 
+    href="mailto:frankoniatradingcards@gmail.com?subject=Karten zum Verkauf anbieten&body=Hallo Frankonia Trading Cards,%0D%0A%0D%0Aich möchte euch folgende Karten anbieten:%0D%0A%0D%0ASpieler:%0D%0ASet/Jahr:%0D%0AZustand:%0D%0APreisvorstellung:%0D%0ABilder kann ich gerne zusenden.%0D%0A%0D%0AViele Grüße"
+    class="ankauf-button">
+    Karten anbieten
+  </a>
 </section>
 
 <!-- HALL OF FAME -->
 <section id="hall" class="section hall-section">
   <h2>Hall of Fame</h2>
+
   <p class="section-subline">
-    Highlights aus der Sammlung – hier kannst du später deine besten Karten präsentieren.
+    Highlights aus der Sammlung – besondere Karten, starke Pulls und persönliche Favoriten.
   </p>
+
+  <div class="hof-grid">
+
+    <div class="hof-card">
+      <img src="Nacua-holo.jpg" alt="Puka Nacua Holo Karte">
+      <div class="hof-info">
+        <h3>Puka Nacua</h3>
+        <p>Holo • Collection Highlight</p>
+      </div>
+    </div>
+
+    <div class="hof-card">
+      <img src="Nacua-Gold.jpg" alt="Puka Nacua Gold Karte">
+      <div class="hof-info">
+        <h3>Puka Nacua</h3>
+        <p>Gold • Hall of Fame Pick</p>
+      </div>
+    </div>
+
+    <div class="hof-card">
+      <img src="Stafford-Prizm.jpg" alt="Matthew Stafford Prizm Karte">
+      <div class="hof-info">
+        <h3>Matthew Stafford</h3>
+        <p>Prizm • Rams Highlight</p>
+      </div>
+    </div>
+
+    <div class="hof-card">
+      <img src="Curry-Red.jpg" alt="Stephen Curry Red Karte">
+      <div class="hof-info">
+        <h3>Stephen Curry</h3>
+        <p>Red Parallel • NBA Highlight</p>
+      </div>
+    </div>
+
+    <div class="hof-card">
+      <img src="Banchero-Mosaic.jpg" alt="Paolo Banchero Mosaic Karte">
+      <div class="hof-info">
+        <h3>Paolo Banchero</h3>
+        <p>Mosaic • NBA Highlight</p>
+      </div>
+    </div>
+
+  </div>
 
   <div class="stripe">
     <div class="stripe-track" id="hallStripe"></div>
@@ -198,12 +282,18 @@
 </div>
 
 <script>
+/* =========================
+   SHOP-KARTEN
+========================= */
+
 const cards = [
   {
     name: "Malik Nabers",
     image: "MalikNabers.jpg",
     details: "Rookie • Pink Parallel • 2023 Mosaic",
     price: "49,99€",
+    type: "Rookie Parallel",
+    status: "Verfügbar",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   },
   {
@@ -211,6 +301,8 @@ const cards = [
     image: "TaylorRapp.jpg",
     details: "Red Parallel • 2023 Mosaic",
     price: "49,99€",
+    type: "Parallel",
+    status: "Reserviert",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   },
   {
@@ -218,49 +310,114 @@ const cards = [
     image: "BreeceHall.jpg",
     details: "Autograph • 2024 Select",
     price: "49,99€",
+    type: "Autograph",
+    status: "Verkauft",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   }
 ];
 
 const cardGrid = document.getElementById("cardGrid");
+const filterButtons = document.querySelectorAll(".filter-btn");
 
-cards.forEach(card => {
-  cardGrid.innerHTML += `
-    <div class="card">
-      <div class="card-inner">
+function getStatusClass(status) {
+  if (status === "Verfügbar") return "status-verfuegbar";
+  if (status === "Reserviert") return "status-reserviert";
+  if (status === "Verkauft") return "status-verkauft";
+  return "";
+}
 
-        <div class="card-front">
-          <img src="${card.image}" alt="${card.name}">
-          <h3>${card.name}</h3>
+function renderCards(filter = "Alle") {
+  cardGrid.innerHTML = "";
+
+  const filteredCards = cards.filter(card => {
+    if (filter === "Alle") return true;
+
+    return (
+      card.type.includes(filter) ||
+      card.status === filter
+    );
+  });
+
+  filteredCards.forEach(card => {
+    const isSold = card.status === "Verkauft";
+    const statusClass = getStatusClass(card.status);
+
+    cardGrid.innerHTML += `
+      <div class="card ${isSold ? "sold-card" : ""}">
+        <div class="status-badge ${statusClass}">
+          ${card.status}
         </div>
 
-        <div class="card-back">
-          <h3>${card.name}</h3>
-          <p>${card.details}</p>
-          <p>${card.price}</p>
+        <div class="card-inner">
 
-          <a href="${card.ebay}" target="_blank">
-            <button>Auf eBay ansehen</button>
-          </a>
+          <div class="card-front">
+            <img src="${card.image}" alt="${card.name}">
+            <h3>${card.name}</h3>
+          </div>
+
+          <div class="card-back">
+            <h3>${card.name}</h3>
+            <p>${card.details}</p>
+            <p>${card.price}</p>
+
+            ${
+              isSold
+              ? `<button class="sold-button" disabled>Verkauft</button>`
+              : `<a href="${card.ebay}" target="_blank">
+                   <button>Auf eBay ansehen</button>
+                 </a>`
+            }
+          </div>
+
         </div>
-
       </div>
-    </div>
-  `;
+    `;
+  });
+
+  if (filteredCards.length === 0) {
+    cardGrid.innerHTML = `
+      <p class="no-cards-message">
+        Aktuell keine Karten in dieser Kategorie vorhanden.
+      </p>
+    `;
+  }
+}
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const filter = button.dataset.filter;
+    renderCards(filter);
+  });
 });
+
+renderCards();
+
+
+/* =========================
+   LOGO SCROLL-EFFEKT
+========================= */
 
 const logo = document.getElementById("logo");
 
-window.addEventListener("scroll", () => {
-  let scrollY = window.scrollY;
+if (logo) {
+  window.addEventListener("scroll", () => {
+    let scrollY = window.scrollY;
 
-  logo.style.transform = `
-    translateY(${scrollY * 0.2}px)
-    scale(${1 + scrollY * 0.0003})
-  `;
-});
+    logo.style.transform = `
+      translateY(${scrollY * 0.2}px)
+      scale(${1 + scrollY * 0.0003})
+    `;
+  });
+}
 
-/* HALL OF FAME */
+
+/* =========================
+   HALL OF FAME STRIPE
+========================= */
+
 const hallOfFame = [
   "Malik Nabers",
   "Taylor Rapp",
@@ -275,6 +432,8 @@ const hallOfFame = [
 const hallStripe = document.getElementById("hallStripe");
 
 function renderHallStripe() {
+  if (!hallStripe) return;
+
   hallStripe.innerHTML = [...hallOfFame, ...hallOfFame].map(item => `
     <span class="stripe-item">🏆 ${item}</span>
   `).join("");
@@ -282,29 +441,41 @@ function renderHallStripe() {
 
 renderHallStripe();
 
-/* KONTAKTFORMULAR */
+
+/* =========================
+   KONTAKTFORMULAR
+========================= */
+
 const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", e => {
-  e.preventDefault();
+if (contactForm) {
+  contactForm.addEventListener("submit", e => {
+    e.preventDefault();
 
-  const data = new FormData(contactForm);
+    const data = new FormData(contactForm);
 
-  const subject = encodeURIComponent(`Anfrage Frankonia Trading Cards: ${data.get("interest")}`);
+    const subject = encodeURIComponent(
+      `Anfrage Frankonia Trading Cards: ${data.get("interest")}`
+    );
 
-  const body = encodeURIComponent(
+    const body = encodeURIComponent(
 `Name: ${data.get("name")}
 E-Mail: ${data.get("email")}
 Interesse: ${data.get("interest")}
 
 Nachricht:
 ${data.get("message")}`
-  );
+    );
 
-  window.location.href = `mailto:frankoniatradingcards@gmail.com?subject=${subject}&body=${body}`;
-});
+    window.location.href = `mailto:frankoniatradingcards@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
 
-/* RECHTLICHE MODALS */
+
+/* =========================
+   RECHTLICHE MODALS
+========================= */
+
 const legalModal = document.getElementById("legalModal");
 const legalModalTitle = document.getElementById("legalModalTitle");
 const legalModalBody = document.getElementById("legalModalBody");
@@ -409,6 +580,8 @@ const legalContent = {
 };
 
 function openLegalModal(type) {
+  if (!legalModal || !legalModalTitle || !legalModalBody) return;
+
   const content = legalContent[type];
 
   if (!content) return;
@@ -421,6 +594,8 @@ function openLegalModal(type) {
 }
 
 function closeLegalModal() {
+  if (!legalModal) return;
+
   legalModal.classList.remove("active");
   legalModal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
@@ -432,16 +607,20 @@ document.querySelectorAll("[data-modal]").forEach(button => {
   });
 });
 
-legalModalClose.addEventListener("click", closeLegalModal);
+if (legalModalClose) {
+  legalModalClose.addEventListener("click", closeLegalModal);
+}
 
-legalModal.addEventListener("click", e => {
-  if (e.target === legalModal) {
-    closeLegalModal();
-  }
-});
+if (legalModal) {
+  legalModal.addEventListener("click", e => {
+    if (e.target === legalModal) {
+      closeLegalModal();
+    }
+  });
+}
 
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && legalModal.classList.contains("active")) {
+  if (e.key === "Escape" && legalModal && legalModal.classList.contains("active")) {
     closeLegalModal();
   }
 });

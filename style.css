@@ -38,18 +38,19 @@ body::before {
     repeat;
 
   background-size:
-    190px,
-    150px,
-    190px,
-    120px;
+    230px,
+    175px,
+    230px,
+    145px;
 
   background-position:
     0 0,
-    110px 90px,
-    60px 180px,
-    160px 40px;
+    130px 100px,
+    70px 210px,
+    190px 55px;
 
-  opacity: 0.22;
+  opacity: 0.34;
+  filter: saturate(1.15) contrast(1.08);
 }
 
 /* ALLES ÜBER DEN HINTERGRUND LEGEN */
@@ -126,9 +127,9 @@ a {
 /* HERO */
 .hero {
   background:
-    radial-gradient(circle at 20% 20%, rgba(220,38,38,0.25), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba(77,166,255,0.25), transparent 35%),
-    rgba(42, 42, 42, 0.72);
+    radial-gradient(circle at 20% 20%, rgba(220,38,38,0.18), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(77,166,255,0.18), transparent 35%),
+    rgba(20, 20, 20, 0.58);
   color: #f5f5f5;
   overflow: hidden;
   backdrop-filter: blur(1px);
@@ -148,6 +149,7 @@ a {
 /* LOGO */
 .logo {
   width: 600px;
+  max-width: 85vw;
   filter: drop-shadow(0 0 25px rgba(255,255,255,0.35));
 }
 
@@ -219,13 +221,7 @@ a {
   transform: scale(1.05);
 }
 
-/* SHOP */
-.shop {
-  color: #f5f5f5;
-  background: rgba(36, 36, 36, 0.72);
-  backdrop-filter: blur(1px);
-}
-
+/* SECTION SUBLINE */
 .section-subline {
   max-width: 650px;
   margin-top: 15px;
@@ -233,62 +229,14 @@ a {
   line-height: 1.6;
 }
 
-/* GRID */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  width: min(1100px, 90%);
-  margin-top: 40px;
-}
-
-/* CARD */
-.card {
-  background: #f5f5f5;
-  color: #111;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.6);
-  transition: 0.3s;
-  perspective: 1000px;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-}
-
-/* IMAGE */
-.card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* BUTTON */
-.card a button {
-  margin-top: 10px;
-  padding: 12px;
-  border: none;
-  background: #e53238;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
-}
-
-.card a button:hover {
-  background: #b91c1c;
-}
-
-/* TRUST - PREMIUM CARD LOOK */
+/* TRUST */
 .trust {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 26px;
   width: 100%;
   padding: 64px max(20px, calc((100% - 1180px) / 2)) 42px;
-  background: rgba(7, 11, 22, 0.78);
+  background: rgba(7, 11, 22, 0.62);
   backdrop-filter: blur(1px);
 }
 
@@ -322,27 +270,119 @@ a {
   color: #cbd5e1;
   font-size: 18px;
   line-height: 1.65;
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
 }
 
-.mail-button {
-  margin-top: 15px;
-  padding: 12px 25px;
-  background: #4da6ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 25px;
+/* SHOP */
+.shop {
+  color: #f5f5f5;
+  background: rgba(36, 36, 36, 0.60);
+  backdrop-filter: blur(1px);
+}
+
+/* SHOP FILTER */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  width: min(1000px, 90%);
+}
+
+.filter-btn {
+  padding: 10px 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: #f5f5f5;
   font-weight: bold;
+  cursor: pointer;
   transition: 0.3s;
-  display: inline-block;
 }
 
-.mail-button:hover {
-  transform: scale(1.05);
-  background: #1a8cff;
+.filter-btn:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: linear-gradient(90deg, #C8102E, #0057B8);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* CARD GRID */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  width: min(1100px, 90%);
+  margin-top: 40px;
+}
+
+/* CARD */
+.card {
+  position: relative;
+  background: #f5f5f5;
+  color: #111;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+  transition: 0.3s;
+  perspective: 1000px;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+/* STATUS BADGES */
+.status-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 5;
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+}
+
+.status-verfuegbar {
+  background: #16a34a;
+}
+
+.status-reserviert {
+  background: #f59e0b;
+}
+
+.status-verkauft {
+  background: #dc2626;
+}
+
+.sold-card {
+  opacity: 0.72;
+}
+
+.sold-button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  background: #6b7280;
+  color: white;
+  border-radius: 10px;
+  cursor: not-allowed;
+  font-weight: bold;
+}
+
+.no-cards-message {
+  grid-column: 1 / -1;
+  color: #cbd5e1;
+  font-size: 18px;
+  padding: 40px 0;
 }
 
 /* FLIP CARD SYSTEM */
@@ -358,7 +398,6 @@ a {
   transform: rotateY(180deg);
 }
 
-/* VORDERSEITE */
 .card-front,
 .card-back {
   position: absolute;
@@ -374,7 +413,6 @@ a {
   padding: 20px;
 }
 
-/* FRONT */
 .card-front {
   background: #f5f5f5;
   color: #111;
@@ -387,7 +425,6 @@ a {
   border-radius: 10px;
 }
 
-/* BACK */
 .card-back {
   background: #1c1c1c;
   color: white;
@@ -398,13 +435,120 @@ a {
   margin-top: 10px;
 }
 
-/* HALL OF FAME */
-.hall-section {
+.card a button {
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  background: #e53238;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.card a button:hover {
+  background: #b91c1c;
+}
+
+/* ANKAUF */
+.ankauf-section {
   color: #f5f5f5;
-  background: rgba(17, 24, 39, 0.72);
+  background: rgba(17, 24, 39, 0.74);
   backdrop-filter: blur(1px);
 }
 
+.ankauf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  width: min(900px, 90%);
+  margin-top: 40px;
+}
+
+.ankauf-box {
+  padding: 22px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.28);
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.ankauf-button {
+  margin-top: 35px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #C8102E, #0057B8);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.ankauf-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* HALL OF FAME */
+.hall-section {
+  color: #f5f5f5;
+  background: rgba(17, 24, 39, 0.60);
+  backdrop-filter: blur(1px);
+}
+
+/* HALL OF FAME BILDER */
+.hof-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  width: min(1300px, 94%);
+  margin-top: 45px;
+}
+
+.hof-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
+}
+
+.hof-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 35px 90px rgba(0,0,0,0.5);
+}
+
+.hof-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.25);
+}
+
+.hof-info {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.hof-info h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.hof-info p {
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* HALL OF FAME STRIPE */
 .stripe {
   width: 100%;
   overflow: hidden;
@@ -451,7 +595,7 @@ a {
 /* ABOUT */
 .about-section {
   color: #f5f5f5;
-  background: rgba(31, 31, 31, 0.72);
+  background: rgba(31, 31, 31, 0.60);
   backdrop-filter: blur(1px);
 }
 
@@ -484,7 +628,7 @@ a {
 /* KONTAKT */
 .kontakt-section {
   color: #f5f5f5;
-  background: rgba(36, 36, 36, 0.72);
+  background: rgba(36, 36, 36, 0.60);
   backdrop-filter: blur(1px);
 }
 
@@ -493,6 +637,23 @@ a {
   gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.mail-button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: #4da6ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+  display: inline-block;
+}
+
+.mail-button:hover {
+  transform: scale(1.05);
+  background: #1a8cff;
 }
 
 .contact-form {
@@ -695,10 +856,34 @@ a {
   font-weight: bold;
 }
 
-/* MOBILE */
+/* RESPONSIVE - TABLET */
+@media (max-width: 1200px) {
+  .hof-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hof-card img {
+    height: 320px;
+  }
+}
+
 @media (max-width: 900px) {
   .navbar ul {
     justify-content: center;
+  }
+
+  .trust {
+    grid-template-columns: 1fr;
+    padding: 45px 20px 35px;
+  }
+
+  .trust-card {
+    min-height: auto;
+    padding: 30px 26px;
+  }
+
+  .ankauf-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-grid {
@@ -711,9 +896,49 @@ a {
   }
 }
 
+@media (max-width: 800px) {
+  .hof-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hof-card img {
+    height: 300px;
+  }
+}
+
+/* RESPONSIVE - MOBILE */
 @media (max-width: 600px) {
   .section {
     padding-top: 120px;
+  }
+
+  body::before {
+    background-size:
+      180px,
+      135px,
+      180px,
+      105px;
+
+    opacity: 0.24;
+  }
+
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .navbar ul {
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .logo {
+    width: 360px;
+    max-width: 90vw;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+    letter-spacing: -1px;
   }
 
   .hero-actions,
@@ -728,24 +953,36 @@ a {
     width: 100%;
   }
 
+  .filter-buttons {
+    gap: 10px;
+  }
+
+  .filter-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
   .card-inner {
     height: 330px;
   }
 
-  .trust {
-    gap: 15px;
-  }
-}
-
-@media (max-width: 900px) {
-  .trust {
+  .ankauf-grid {
     grid-template-columns: 1fr;
-    padding: 45px 20px 35px;
   }
 
-  .trust-card {
-    min-height: auto;
-    padding: 30px 26px;
+  .ankauf-box {
+    font-size: 16px;
+  }
+
+  .ankauf-button {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .contact-form {
+    width: 100%;
+    padding: 24px;
   }
 }
 
@@ -760,5 +997,22 @@ a {
 
   .icon {
     margin-bottom: 26px;
+  }
+
+  .hof-grid {
+    grid-template-columns: 1fr;
+    width: min(420px, 90%);
+  }
+
+  .hof-card img {
+    height: 360px;
+  }
+
+  .hof-info h3 {
+    font-size: 20px;
+  }
+
+  .hof-info p {
+    font-size: 14px;
   }
 }
