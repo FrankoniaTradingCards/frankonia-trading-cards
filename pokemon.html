@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pokémon Cards | Frankonia Trading Cards</title>
+  <meta name="description" content="Pokémon Trading Cards bei Frankonia Trading Cards – besondere Karten, Sammlerstücke und faire Abwicklung.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <style>
+    /* POKEMON PAGE EXTRA DESIGN */
+    .pokemon-hero {
+      min-height: 100vh;
+      padding: 120px 20px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 203, 5, 0.20), transparent 35%),
+        radial-gradient(circle at 80% 15%, rgba(42, 117, 187, 0.25), transparent 35%),
+        rgba(20, 20, 20, 0.62);
+      backdrop-filter: blur(1px);
+    }
+
+    .pokemon-hero-inner {
+      width: min(1100px, 92%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .pokemon-badge {
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #e5e7eb;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+
+    .pokemon-logo-mark {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+      background:
+        linear-gradient(to bottom, #ef4444 0 48%, #111827 48% 52%, #ffffff 52% 100%);
+      box-shadow:
+        0 0 0 8px rgba(255,255,255,0.08),
+        0 30px 90px rgba(0,0,0,0.45);
+      position: relative;
+    }
+
+    .pokemon-logo-mark::before {
+      content: "";
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 8px solid #111827;
+      position: absolute;
+    }
+
+    .pokemon-logo-mark::after {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .pokemon-hero h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #ffcb05 0%, #f97316 30%, #2a75bb 72%, #3b4cca 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .pokemon-hero-text {
+      max-width: 720px;
+      margin-top: 24px;
+      color: #cbd5e1;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .pokemon-actions {
+      margin-top: 34px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pokemon-button {
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .pokemon-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .pokemon-button.primary {
+      background: linear-gradient(90deg, #ffcb05, #2a75bb);
+      color: #111827;
+    }
+
+    .pokemon-button.secondary {
+      background: rgba(255,255,255,0.10);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .pokemon-section {
+      min-height: 100vh;
+      padding: 100px 20px 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: rgba(17, 24, 39, 0.66);
+      backdrop-filter: blur(1px);
+    }
+
+    .pokemon-section.alt {
+      background: rgba(36, 36, 36, 0.62);
+    }
+
+    .pokemon-kicker {
+      color: #ffcb05;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .pokemon-section h2 {
+      max-width: 850px;
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 1;
+      letter-spacing: -3px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #ffcb05 0%, #f97316 30%, #2a75bb 75%, #3b4cca 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .pokemon-subline {
+      max-width: 720px;
+      margin-top: 20px;
+      color: #cbd5e1;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .pokemon-category-grid {
+      width: min(1100px, 92%);
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .pokemon-category {
+      padding: 28px 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.28);
+      transition: 0.3s;
+    }
+
+    .pokemon-category:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .pokemon-category span {
+      font-size: 34px;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .pokemon-category h3 {
+      color: #ffffff;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .pokemon-category p {
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .pokemon-card-grid {
+      width: min(1200px, 94%);
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .pokemon-card {
+      position: relative;
+      min-height: 440px;
+      border-radius: 28px;
+      padding: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+      transition: 0.3s;
+      overflow: hidden;
+    }
+
+    .pokemon-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 35px 90px rgba(0,0,0,0.50);
+    }
+
+    .pokemon-card-image {
+      height: 300px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255,203,5,0.28), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(42,117,187,0.28), transparent 35%),
+        rgba(2,6,23,0.55);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .pokemon-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+    }
+
+    .pokemon-placeholder {
+      font-size: 62px;
+      filter: drop-shadow(0 12px 25px rgba(0,0,0,0.45));
+    }
+
+    .pokemon-card-info {
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .pokemon-card-info h3 {
+      color: #ffffff;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .pokemon-card-info p {
+      color: #cbd5e1;
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .pokemon-card-meta {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pokemon-tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+      background: rgba(255,255,255,0.10);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .pokemon-status {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 5;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #111827;
+      background: #ffcb05;
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    }
+
+    .pokemon-process {
+      width: min(1000px, 92%);
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .pokemon-step {
+      padding: 26px 18px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+    }
+
+    .pokemon-step strong {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #ffcb05, #2a75bb);
+      color: #111827;
+      font-weight: 900;
+    }
+
+    .pokemon-step h3 {
+      color: #ffffff;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .pokemon-step p {
+      color: #cbd5e1;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .pokemon-final-cta {
+      margin-top: 45px;
+      padding: 34px;
+      width: min(850px, 92%);
+      border-radius: 30px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+    }
+
+    .pokemon-final-cta h3 {
+      color: #ffffff;
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .pokemon-final-cta p {
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+	
+	.pokemon-contact-card {
+  text-align: center;
+}
+
+.pokemon-contact-form {
+  margin-top: 28px;
+  display: grid;
+  gap: 16px;
+  text-align: left;
+}
+
+.pokemon-contact-form label {
+  display: grid;
+  gap: 8px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.pokemon-contact-form input,
+.pokemon-contact-form select,
+.pokemon-contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 15px;
+  padding: 14px 16px;
+  font: inherit;
+  color: #111827;
+  background: rgba(255,255,255,0.96);
+  outline: none;
+}
+
+.pokemon-contact-form input:focus,
+.pokemon-contact-form select:focus,
+.pokemon-contact-form textarea:focus {
+  border-color: #ffcb05;
+  box-shadow: 0 0 0 3px rgba(255, 203, 5, 0.22);
+}
+
+.pokemon-contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.pokemon-submit-button {
+  margin-top: 8px;
+  background: linear-gradient(90deg, #ffcb05, #2a75bb);
+  color: #111827;
+}
+
+.pokemon-submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.30);
+}
+
+    @media (max-width: 1000px) {
+      .pokemon-category-grid,
+      .pokemon-process {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pokemon-card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .pokemon-hero h1,
+      .pokemon-section h2 {
+        font-size: 40px;
+        letter-spacing: -1px;
+      }
+
+      .pokemon-logo-mark {
+        width: 120px;
+        height: 120px;
+      }
+
+      .pokemon-category-grid,
+      .pokemon-process,
+      .pokemon-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pokemon-card-image {
+        height: 340px;
+      }
+
+      .pokemon-button {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+      }
+
+      .pokemon-final-cta {
+        padding: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="parallax-background" aria-hidden="true">
+  <div class="floating-card is-soft" style="--x: 4vw; --w: 170px; --o: .34; --r: -18deg; --ry: 16deg; --rx: 4deg; --z: -260px;" data-speed="0.23" data-start="60">
+    <img src="bg-card-Rams.png" alt="">
+  </div>
+
+  <div class="floating-card is-sharp" style="--x: 18vw; --w: 210px; --o: .42; --r: 12deg; --ry: -10deg; --rx: 7deg; --z: -140px;" data-speed="0.34" data-start="240">
+    <img src="bg-card-Texans.png" alt="">
+  </div>
+
+  <div class="floating-card is-soft" style="--x: 38vw; --w: 155px; --o: .28; --r: -8deg; --ry: 20deg; --rx: 0deg; --z: -320px;" data-speed="0.19" data-start="390">
+    <img src="bg-football.png" alt="">
+  </div>
+
+  <div class="floating-card is-sharp" style="--x: 68vw; --w: 230px; --o: .40; --r: 17deg; --ry: -22deg; --rx: 8deg; --z: -180px;" data-speed="0.31" data-start="120">
+    <img src="bg-card-Rams.png" alt="">
+  </div>
+
+  <div class="floating-card is-soft" style="--x: 82vw; --w: 165px; --o: .30; --r: -22deg; --ry: 14deg; --rx: 5deg; --z: -280px;" data-speed="0.25" data-start="510">
+    <img src="bg-card-Texans.png" alt="">
+  </div>
+</div>
+
+<a href="https://www.instagram.com/frankonia_trading_cards/" 
+   target="_blank" 
+   class="floating-insta">
+   Instagram
+</a>
+
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#shop">Football</a></li>
+    <li><a href="pokemon.html">Pokémon</a></li>
+    <li><a href="index.html#hall">Hall of Fame</a></li>
+    <li><a href="index.html#about">Über uns</a></li>
+    <li><a href="index.html#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<header class="pokemon-hero">
+  <div class="pokemon-hero-inner">
+    <div class="pokemon-badge">✦ Pokémon Cards. Collectibles. Fair Deals.</div>
+
+    <div class="pokemon-logo-mark"></div>
+
+    <h1>Pokémon Trading Cards</h1>
+
+    <p class="pokemon-hero-text">
+      Ein eigener Bereich für Pokémon-Karten: besondere Sammlerstücke, moderne Sets,
+      Highlights, Anfragen und später auch verfügbare Einzelkarten.
+    </p>
+
+    <div class="pokemon-actions">
+      <a href="#pokemon-cards" class="pokemon-button primary">Karten ansehen</a>
+      <a href="#pokemon-contact" class="pokemon-button secondary">Pokémon-Karte anbieten</a>
+    </div>
+  </div>
+</header>
+
+<section class="pokemon-section">
+  <p class="pokemon-kicker">Bereiche</p>
+  <h2>Was dich hier erwartet.</h2>
+
+  <p class="pokemon-subline">
+    Der Pokémon-Bereich ist bewusst als eigene Seite aufgebaut. So bleibt Football sauber getrennt,
+    während Pokémon trotzdem im gleichen Frankonia-Stil läuft.
+  </p>
+
+  <div class="pokemon-category-grid">
+    <div class="pokemon-category">
+      <span>🔥</span>
+      <h3>Hits & Highlights</h3>
+      <p>Besondere Karten, starke Pulls und Sammlerstücke mit Charakter.</p>
+    </div>
+
+    <div class="pokemon-category">
+      <span>⭐</span>
+      <h3>Rares & Holos</h3>
+      <p>Holos, Full Arts, Secret Rares und auffällige Karten aus modernen Sets.</p>
+    </div>
+
+    <div class="pokemon-category">
+      <span>🛡️</span>
+      <h3>Graded Cards</h3>
+      <p>PSA, CGC oder andere Slabs können später separat dargestellt werden.</p>
+    </div>
+
+    <div class="pokemon-category">
+      <span>📩</span>
+      <h3>Ankauf</h3>
+      <p>Du kannst Pokémon-Karten anbieten und direkt eine Anfrage vorbereiten.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pokemon-cards" class="pokemon-section alt">
+  <p class="pokemon-kicker">Showcase</p>
+  <h2>Pokémon Highlights.</h2>
+
+  <p class="pokemon-subline">
+    Platzhalter für deine ersten Pokémon-Karten. Sobald du Bilder hast, ersetzt du einfach die Dateinamen.
+  </p>
+
+  <div class="pokemon-card-grid">
+
+    <article class="pokemon-card">
+      <div class="pokemon-status">Showcase</div>
+      <div class="pokemon-card-image">
+        <div class="pokemon-placeholder">🔥</div>
+      </div>
+
+      <div class="pokemon-card-info">
+        <h3>Charizard Highlight</h3>
+        <p>Platzhalter für eine starke Feuer-Karte oder ein besonderes Collection Piece.</p>
+
+        <div class="pokemon-card-meta">
+          <span class="pokemon-tag">Holo</span>
+          <span class="pokemon-tag">Highlight</span>
+          <span class="pokemon-tag">Pokémon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="pokemon-card">
+      <div class="pokemon-status">Coming Soon</div>
+      <div class="pokemon-card-image">
+        <div class="pokemon-placeholder">⚡</div>
+      </div>
+
+      <div class="pokemon-card-info">
+        <h3>Pikachu Pick</h3>
+        <p>Perfekt für eine Fan-Favorite-Karte, Promo oder besondere Illustration.</p>
+
+        <div class="pokemon-card-meta">
+          <span class="pokemon-tag">Promo</span>
+          <span class="pokemon-tag">Fan Favorite</span>
+          <span class="pokemon-tag">Electric</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="pokemon-card">
+      <div class="pokemon-status">Anfrage</div>
+      <div class="pokemon-card-image">
+        <div class="pokemon-placeholder">💎</div>
+      </div>
+
+      <div class="pokemon-card-info">
+        <h3>Graded Card</h3>
+        <p>Für PSA-, CGC- oder andere Grading-Karten mit sauberem Fokus auf Zustand und Label.</p>
+
+        <div class="pokemon-card-meta">
+          <span class="pokemon-tag">PSA</span>
+          <span class="pokemon-tag">Slab</span>
+          <span class="pokemon-tag">Graded</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="pokemon-contact" class="pokemon-section">
+  <p class="pokemon-kicker">Ankauf & Anfrage</p>
+  <h2>Pokémon-Karten anbieten.</h2>
+
+  <p class="pokemon-subline">
+    Du hast Pokémon-Karten, die du anbieten möchtest? Schick am besten direkt Bilder,
+    Zustand, Set, Jahr und deine Preisvorstellung mit.
+  </p>
+
+  <div class="pokemon-process">
+    <div class="pokemon-step">
+      <strong>1</strong>
+      <h3>Bilder schicken</h3>
+      <p>Vorderseite, Rückseite und bei Slabs auch das Label gut sichtbar.</p>
+    </div>
+
+    <div class="pokemon-step">
+      <strong>2</strong>
+      <h3>Daten nennen</h3>
+      <p>Set, Jahr, Sprache, Zustand und ob die Karte graded ist.</p>
+    </div>
+
+    <div class="pokemon-step">
+      <strong>3</strong>
+      <h3>Preisvorstellung</h3>
+      <p>Nenne grob, was du dir vorstellst oder ob du ein Angebot möchtest.</p>
+    </div>
+
+    <div class="pokemon-step">
+      <strong>4</strong>
+      <h3>Antwort abwarten</h3>
+      <p>Wir prüfen die Anfrage und melden uns sauber zurück.</p>
+    </div>
+  </div>
+
+  <div class="pokemon-final-cta pokemon-contact-card">
+  <h3>Bereit für deine Anfrage?</h3>
+  <p>
+    Füll kurz die wichtigsten Daten aus. Das Formular öffnet danach dein Mailprogramm
+    mit einer vorbereiteten Pokémon-Anfrage.
+  </p>
+
+  <form id="pokemonContactForm" class="pokemon-contact-form">
+    <label>
+      Name
+      <input name="name" autocomplete="name" placeholder="Dein Name" required>
+    </label>
+
+    <label>
+      E-Mail
+      <input name="email" type="email" autocomplete="email" placeholder="name@mail.de" required>
+    </label>
+
+    <label>
+      Anfrageart
+      <select name="interest">
+        <option>Pokémon-Karte anbieten</option>
+        <option>Pokémon-Karte kaufen</option>
+        <option>Allgemeine Pokémon-Frage</option>
+        <option>Graded Card / PSA Anfrage</option>
+      </select>
+    </label>
+
+    <label>
+      Pokémon / Karte
+      <input name="pokemon" placeholder="z. B. Charizard, Pikachu, Umbreon">
+    </label>
+
+    <label>
+      Set / Jahr / Sprache
+      <input name="setinfo" placeholder="z. B. 151, Evolving Skies, Deutsch/Englisch">
+    </label>
+
+    <label>
+      Zustand / Grading
+      <input name="condition" placeholder="z. B. Near Mint, PSA 9, ungegradet">
+    </label>
+
+    <label>
+      Preisvorstellung / Budget
+      <input name="price" placeholder="z. B. 50€, Angebot gewünscht, VB">
+    </label>
+
+    <label>
+      Nachricht
+      <textarea name="message" placeholder="Weitere Infos zur Karte oder Anfrage..." required></textarea>
+    </label>
+
+    <button class="submit-button pokemon-submit-button" type="submit">
+      Pokémon-Anfrage vorbereiten
+    </button>
+
+    <p class="form-note">
+      Bilder kannst du anschließend direkt in deiner Mail-App anhängen.
+    </p>
+  </form>
+</div>
+</section>
+
+<footer class="legal-footer">
+  <div class="legal-footer-inner">
+    <p><strong>Frankonia Trading Cards</strong> · Pokémon Bereich</p>
+
+    <div class="legal-links">
+      <a class="legal-link" href="index.html#home">Zurück zur Hauptseite</a>
+      <a class="legal-link" href="index.html#kontakt">Kontakt</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* PARALLAX BACKGROUND */
+/* POKEMON KONTAKTFORMULAR */
+const pokemonContactForm = document.getElementById("pokemonContactForm");
+
+if (pokemonContactForm) {
+  pokemonContactForm.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const data = new FormData(pokemonContactForm);
+
+    const subject = encodeURIComponent(
+      `Pokémon Anfrage Frankonia Trading Cards: ${data.get("interest")}`
+    );
+
+    const body = encodeURIComponent(
+`Name: ${data.get("name")}
+E-Mail: ${data.get("email")}
+Anfrageart: ${data.get("interest")}
+
+Pokémon / Karte:
+${data.get("pokemon")}
+
+Set / Jahr / Sprache:
+${data.get("setinfo")}
+
+Zustand / Grading:
+${data.get("condition")}
+
+Preisvorstellung / Budget:
+${data.get("price")}
+
+Nachricht:
+${data.get("message")}
+
+Hinweis:
+Bilder der Karte können direkt als Anhang in dieser Mail ergänzt werden.`
+    );
+
+    window.location.href = `mailto:frankoniatradingcards@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
+
+(() => {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const floatingCards = Array.from(document.querySelectorAll(".floating-card"));
+
+  if (!floatingCards.length || prefersReducedMotion) return;
+
+  function updateParallax() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const viewportH = window.innerHeight;
+
+    floatingCards.forEach((card) => {
+      const speed = Number(card.dataset.speed || 0.25);
+      const start = Number(card.dataset.start || 0);
+
+      const y = viewportH + start - scrollY * (speed * 3.2);
+      const drift = Math.sin((scrollY + start) * 0.003) * 28;
+      const tilt = Math.sin((scrollY + start) * 0.002) * 7;
+
+      const styles = getComputedStyle(card);
+      const rotate = styles.getPropertyValue("--r").trim();
+      const rotateY = styles.getPropertyValue("--ry").trim();
+      const rotateX = styles.getPropertyValue("--rx").trim();
+      const z = styles.getPropertyValue("--z").trim();
+
+      card.style.transform =
+        `translate3d(${drift}px, ${y}px, ${z}) rotate(calc(${rotate} + ${tilt}deg)) rotateY(${rotateY}) rotateX(${rotateX})`;
+    });
+  }
+
+  let ticking = false;
+
+  function requestParallaxUpdate() {
+    if (ticking) return;
+
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      updateParallax();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
+  window.addEventListener("resize", requestParallaxUpdate);
+
+  updateParallax();
+})();
+</script>
+
+</body>
+</html>
