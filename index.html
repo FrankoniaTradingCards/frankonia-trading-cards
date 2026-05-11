@@ -68,26 +68,22 @@
   </div>
 </div>
 
-<a href="https://www.instagram.com/frankonia_trading_cards/" 
-   target="_blank" 
-   class="floating-insta">
-   Instagram
+<a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank" class="floating-insta">
+  Instagram
 </a>
 
-<!-- NAVIGATION -->
 <nav class="navbar">
   <ul>
     <li><a href="index.html#home">Home</a></li>
     <li><a href="index.html#shop">Shop</a></li>
-    <li><a href="index.html#hall">Hall of Fame</a></li>
     <li><a href="pokemon.html">Pokémon</a></li>
+    <li><a href="index.html#guide">Guide</a></li>
+    <li><a href="index.html#hall">Hall of Fame</a></li>
     <li><a href="index.html#about">Über uns</a></li>
     <li><a href="index.html#kontakt">Kontakt</a></li>
-	<li><a href="index.html#guide">Guide</a></li>
   </ul>
 </nav>
 
-<!-- HOME -->
 <section id="home" class="section hero">
   <div class="hero-badge">✦ Football Cards. Fair. Sicher. Frankonia.</div>
 
@@ -112,7 +108,6 @@
       <path d="M12 3l7 3v5c0 5-3.2 8.6-7 10-3.8-1.4-7-5-7-10V6l7-3z" stroke="currentColor" stroke-width="2"/>
       <path d="M8.5 12l2.2 2.2L15.8 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-
     <h3>100% Originalkarten</h3>
     <p>Keine Reprints, keine Spielchen. Nur echte Karten mit sauberer Beschreibung.</p>
   </article>
@@ -123,7 +118,6 @@
       <path d="M14 11h3l3 3v3h-6v-6z" stroke="currentColor" stroke-width="2"/>
       <path d="M7 20a2 2 0 100-4 2 2 0 000 4zM17 20a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/>
     </svg>
-
     <h3>Sicherer Versand</h3>
     <p>Sauber verpackt, geschützt und nachvollziehbar verschickt.</p>
   </article>
@@ -132,37 +126,49 @@
     <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
     </svg>
-
     <h3>Top bewertet</h3>
     <p>Vertrauen durch faire Abwicklung und klare Kommunikation.</p>
   </article>
 </section>
 
-<!-- SHOP -->
 <section id="shop" class="section shop">
   <h2>Shop</h2>
   <p class="section-subline">
     Aktuelle Karten mit Flip-Effekt, Details und direkter Weiterleitung zu eBay.
   </p>
 
-  <div class="filter-buttons">
-    <button class="filter-btn active" data-filter="Alle">Alle</button>
-    <button class="filter-btn" data-filter="Rookie">Rookies</button>
-    <button class="filter-btn" data-filter="Autograph">Autographs</button>
-    <button class="filter-btn" data-filter="Patch">Patches</button>
-    <button class="filter-btn" data-filter="Parallel">Parallels</button>
-    <button class="filter-btn" data-filter="Verfügbar">Verfügbar</button>
-    <button class="filter-btn" data-filter="Reserviert">Reserviert</button>
-    <button class="filter-btn" data-filter="Verkauft">Verkauft</button>
+  <div class="shop-controls">
+    <div class="shop-search-wrapper">
+      <label for="shopSearch">Karte suchen</label>
+      <input 
+        type="text" 
+        id="shopSearch" 
+        class="shop-search-input" 
+        placeholder="Spieler, Set, Typ oder Status suchen..."
+        autocomplete="off">
+    </div>
+
+    <div class="shop-filter-wrapper">
+      <label for="shopFilter">Kategorie auswählen</label>
+
+      <select id="shopFilter" class="shop-filter-select">
+        <option value="Alle">Alle Karten</option>
+        <option value="Rookie">Rookies</option>
+        <option value="Autograph">Autographs</option>
+        <option value="Patch">Patches</option>
+        <option value="Parallel">Parallels</option>
+        <option value="Verfügbar">Verfügbar</option>
+        <option value="Reserviert">Reserviert</option>
+        <option value="Verkauft">Verkauft</option>
+      </select>
+    </div>
   </div>
 
   <div class="card-grid" id="cardGrid"></div>
 </section>
 
-<!-- TRADING CARD GUIDE -->
 <section id="guide" class="section guide-section">
   <div class="guide-wrapper">
-
     <p class="guide-kicker">Trading Card Guide</p>
     <h2>Der kurze Frankonia Card Guide.</h2>
 
@@ -172,7 +178,6 @@
     </p>
 
     <div class="guide-grid">
-
       <article class="guide-card">
         <span>🃏</span>
         <h3>Wichtige Kartentypen</h3>
@@ -222,7 +227,6 @@
           <li><strong>Lagerung:</strong> trocken, dunkel und ohne direkte Sonne.</li>
         </ul>
       </article>
-
     </div>
 
     <div class="guide-tip-box">
@@ -232,11 +236,9 @@
         Für Wertsteigerung zählen Zustand, Seltenheit, Nachfrage und ein bisschen Timing.
       </p>
     </div>
-
   </div>
 </section>
 
-<!-- HALL OF FAME -->
 <section id="hall" class="section hall-section">
   <h2>Hall of Fame</h2>
   <p class="section-subline">
@@ -290,13 +292,9 @@
   </div>
 </section>
 
-<!-- ÜBER UNS -->
-<!-- ÜBER UNS -->
 <section id="about" class="section about-section">
   <div class="about-wrapper">
-
     <p class="about-kicker">Über Frankonia Trading Cards</p>
-
     <h2>Sammlerleidenschaft aus Franken.</h2>
 
     <p class="about-intro">
@@ -355,14 +353,11 @@
         Instagram ansehen
       </a>
     </div>
-
   </div>
 </section>
 
-<!-- KONTAKT -->
 <section id="kontakt" class="section kontakt-section">
   <div class="contact-wrapper">
-
     <div class="contact-head">
       <p class="contact-kicker">Kontakt</p>
       <h2>Frage, Deal oder Kartenangebot?</h2>
@@ -373,7 +368,6 @@
     </div>
 
     <div class="contact-layout">
-
       <div class="contact-info-panel">
         <h3>So erreichst du uns</h3>
 
@@ -455,13 +449,10 @@
           Das Formular öffnet dein Mailprogramm mit einer vorbereiteten Nachricht.
         </p>
       </form>
-
     </div>
-
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="legal-footer">
   <div class="legal-footer-inner">
     <p><strong>Frankonia Trading Cards</strong> · Rechtliches & Kontakt</p>
@@ -474,7 +465,6 @@
   </div>
 </footer>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" aria-hidden="true">
   <div class="legal-modal">
     <div class="legal-modal-header">
@@ -506,7 +496,7 @@ const cards = [
     status: "Reserviert",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   },
-   {
+  {
     name: "Ben Roethlisberger",
     image: "Ben.jpg",
     details: "Immortals • 2023 Certified",
@@ -515,16 +505,16 @@ const cards = [
     status: "Verfügbar",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   },
-   {
+  {
     name: "Garrett Wilson",
     image: "GarrettWilson.jpg",
-    details: "marquee • 2022 Prizm",
+    details: "Marquee • 2022 Prizm",
     price: "4,99€",
     type: "Pink Parallel",
     status: "Verfügbar",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   },
-   {
+  {
     name: "Kool-Aid McKinstrey",
     image: "Kool-Aid.jpg",
     details: "Red Parallel • Prizm",
@@ -533,7 +523,7 @@ const cards = [
     status: "Verfügbar",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   },
-   {
+  {
     name: "Malik Nabers",
     image: "Nabers.jpg",
     details: "Franchise Foundation • 2023 Certified",
@@ -542,12 +532,12 @@ const cards = [
     status: "Verfügbar",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   },
-   {
+  {
     name: "Brock Bowers",
     image: "BrockBowers.jpg",
     details: "The Rookies • 2024 Donruss",
     price: "10,99€",
-    type: "Parallel",
+    type: "Rookie",
     status: "Verfügbar",
     ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
   },
@@ -563,7 +553,8 @@ const cards = [
 ];
 
 const cardGrid = document.getElementById("cardGrid");
-const filterButtons = document.querySelectorAll(".filter-btn");
+const shopFilter = document.getElementById("shopFilter");
+const shopSearch = document.getElementById("shopSearch");
 
 function getStatusClass(status) {
   if (status === "Verfügbar") return "status-verfuegbar";
@@ -572,16 +563,32 @@ function getStatusClass(status) {
   return "";
 }
 
-function renderCards(filter = "Alle") {
+function renderCards(filter = "Alle", searchTerm = "") {
+  if (!cardGrid) return;
+
   cardGrid.innerHTML = "";
 
-  const filteredCards = cards.filter(card => {
-    if (filter === "Alle") return true;
+  const cleanSearch = searchTerm.trim().toLowerCase();
 
-    return (
+  const filteredCards = cards.filter(card => {
+    const matchesFilter =
+      filter === "Alle" ||
       card.type.includes(filter) ||
-      card.status === filter
-    );
+      card.status === filter;
+
+    const searchableText = `
+      ${card.name}
+      ${card.details}
+      ${card.price}
+      ${card.type}
+      ${card.status}
+    `.toLowerCase();
+
+    const matchesSearch =
+      cleanSearch === "" ||
+      searchableText.includes(cleanSearch);
+
+    return matchesFilter && matchesSearch;
   });
 
   filteredCards.forEach(card => {
@@ -595,7 +602,6 @@ function renderCards(filter = "Alle") {
         </div>
 
         <div class="card-inner">
-
           <div class="card-front">
             <img src="${card.image}" alt="${card.name}">
             <h3>${card.name}</h3>
@@ -614,7 +620,6 @@ function renderCards(filter = "Alle") {
                  </a>`
             }
           </div>
-
         </div>
       </div>
     `;
@@ -623,36 +628,42 @@ function renderCards(filter = "Alle") {
   if (filteredCards.length === 0) {
     cardGrid.innerHTML = `
       <p class="no-cards-message">
-        Aktuell keine Karten in dieser Kategorie vorhanden.
+        Keine Karten gefunden. Versuch einen anderen Suchbegriff oder eine andere Kategorie.
       </p>
     `;
   }
 }
 
-filterButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
+function updateShopView() {
+  const currentFilter = shopFilter ? shopFilter.value : "Alle";
+  const currentSearch = shopSearch ? shopSearch.value : "";
 
-    const filter = button.dataset.filter;
-    renderCards(filter);
-  });
-});
+  renderCards(currentFilter, currentSearch);
+}
+
+if (shopFilter) {
+  shopFilter.addEventListener("change", updateShopView);
+}
+
+if (shopSearch) {
+  shopSearch.addEventListener("input", updateShopView);
+}
 
 renderCards();
 
 const logo = document.getElementById("logo");
 
-window.addEventListener("scroll", () => {
-  let scrollY = window.scrollY;
+if (logo) {
+  window.addEventListener("scroll", () => {
+    let scrollY = window.scrollY;
 
-  logo.style.transform = `
-    translateY(${scrollY * 0.2}px)
-    scale(${1 + scrollY * 0.0003})
-  `;
-});
+    logo.style.transform = `
+      translateY(${scrollY * 0.2}px)
+      scale(${1 + scrollY * 0.0003})
+    `;
+  });
+}
 
-/* HALL OF FAME */
 const hallOfFame = [
   "Puka Nacua Holo",
   "Puka Nacua Gold",
@@ -667,6 +678,8 @@ const hallOfFame = [
 const hallStripe = document.getElementById("hallStripe");
 
 function renderHallStripe() {
+  if (!hallStripe) return;
+
   hallStripe.innerHTML = [...hallOfFame, ...hallOfFame].map(item => `
     <span class="stripe-item">🏆 ${item}</span>
   `).join("");
@@ -674,29 +687,29 @@ function renderHallStripe() {
 
 renderHallStripe();
 
-/* KONTAKTFORMULAR */
 const contactForm = document.getElementById("contactForm");
 
-contactForm.addEventListener("submit", e => {
-  e.preventDefault();
+if (contactForm) {
+  contactForm.addEventListener("submit", e => {
+    e.preventDefault();
 
-  const data = new FormData(contactForm);
+    const data = new FormData(contactForm);
 
-  const subject = encodeURIComponent(`Anfrage Frankonia Trading Cards: ${data.get("interest")}`);
+    const subject = encodeURIComponent(`Anfrage Frankonia Trading Cards: ${data.get("interest")}`);
 
-  const body = encodeURIComponent(
+    const body = encodeURIComponent(
 `Name: ${data.get("name")}
 E-Mail: ${data.get("email")}
 Interesse: ${data.get("interest")}
 
 Nachricht:
 ${data.get("message")}`
-  );
+    );
 
-  window.location.href = `mailto:frankoniatradingcards@gmail.com?subject=${subject}&body=${body}`;
-});
+    window.location.href = `mailto:frankoniatradingcards@gmail.com?subject=${subject}&body=${body}`;
+  });
+}
 
-/* RECHTLICHE MODALS */
 const legalModal = document.getElementById("legalModal");
 const legalModalTitle = document.getElementById("legalModalTitle");
 const legalModalBody = document.getElementById("legalModalBody");
@@ -706,12 +719,12 @@ const legalContent = {
   impressum: {
     title: "Impressum",
     body: `
-      <h3>Angaben gemäß § 5 TMG</h3>
+      <h3>Anbieterkennzeichnung</h3>
       <p>
         <strong>Frankonia Trading Cards</strong><br>
-        Vorname Nachname<br>
-        Straße Hausnummer<br>
-        PLZ Ort<br>
+        Marvin Boetticher<br>
+        Krokusweg 31<br>
+        90513 Zirndorf<br>
         Deutschland
       </p>
 
@@ -722,16 +735,55 @@ const legalContent = {
           frankoniatradingcards@gmail.com
         </a><br>
         Instagram:
-        <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank">
+        <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank" rel="noreferrer">
           @frankonia_trading_cards
+        </a><br>
+        eBay:
+        <a href="https://www.ebay.de/usr/frankonia_trading_cards" target="_blank" rel="noreferrer">
+          frankonia_trading_cards
         </a>
       </p>
 
       <h3>Verantwortlich für den Inhalt</h3>
-      <p>Vorname Nachname, Anschrift wie oben.</p>
+      <p>
+        Marvin Boetticher<br>
+        Krokusweg 31<br>
+        90513 Zirndorf
+      </p>
+
+      <h3>EU-Streitschlichtung</h3>
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">
+          https://ec.europa.eu/consumers/odr/
+        </a>
+      </p>
+
+      <h3>Verbraucherstreitbeilegung</h3>
+      <p>
+        Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer
+        Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
+
+      <h3>Haftung für Inhalte</h3>
+      <p>
+        Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen
+        Gesetzen verantwortlich.
+      </p>
+
+      <h3>Haftung für Links</h3>
+      <p>
+        Diese Website enthält Links zu externen Websites Dritter, zum Beispiel Instagram und eBay.
+        Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.
+      </p>
+
+      <h3>Urheberrecht</h3>
+      <p>
+        Die durch uns erstellten Inhalte und Werke auf dieser Website unterliegen dem deutschen Urheberrecht.
+      </p>
 
       <p class="legal-note">
-        Wichtig: Bitte vor Veröffentlichung deine echten Pflichtangaben eintragen.
+        Hinweis: Die rechtlichen Angaben wurden nach bestem Wissen erstellt und sollten bei gewerblicher Nutzung regelmäßig geprüft werden.
       </p>
     `
   },
@@ -739,38 +791,73 @@ const legalContent = {
   datenschutz: {
     title: "Datenschutzerklärung",
     body: `
-      <h3>1. Verantwortlicher</h3>
+      <h3>1. Datenschutz auf einen Blick</h3>
       <p>
-        Verantwortlich für diese Website ist Frankonia Trading Cards.
-        Kontakt: frankoniatradingcards@gmail.com
+        Die folgenden Hinweise geben einen Überblick darüber, was mit personenbezogenen Daten passiert,
+        wenn diese Website besucht oder über die angebotenen Kontaktmöglichkeiten eine Anfrage gestellt wird.
       </p>
 
-      <h3>2. Allgemeine Hinweise</h3>
+      <h3>2. Verantwortlicher</h3>
       <p>
-        Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung
-        der Website, zur Bearbeitung von Anfragen oder zur Abwicklung von Verkäufen
-        erforderlich ist.
+        <strong>Frankonia Trading Cards</strong><br>
+        Marvin Boetticher<br>
+        Krokusweg 31<br>
+        90513 Zirndorf<br>
+        Deutschland<br><br>
+        E-Mail:
+        <a href="mailto:frankoniatradingcards@gmail.com">
+          frankoniatradingcards@gmail.com
+        </a>
       </p>
 
-      <h3>3. Kontaktaufnahme</h3>
+      <h3>3. Erfassung von Daten</h3>
       <p>
-        Wenn du uns per E-Mail, Formular oder Instagram kontaktierst, verarbeiten wir
-        deine Angaben zur Bearbeitung deiner Anfrage.
+        Daten werden erhoben, wenn du sie uns mitteilst, zum Beispiel über das Kontaktformular
+        oder per E-Mail. Außerdem können beim Besuch der Website technische Zugriffsdaten durch
+        den Hosting-Anbieter verarbeitet werden.
       </p>
 
-      <h3>4. Externe Links</h3>
+      <h3>4. Hosting</h3>
       <p>
-        Diese Website kann Links zu externen Plattformen wie Instagram oder eBay enthalten.
-        Beim Anklicken gelten die Datenschutzbestimmungen des jeweiligen Anbieters.
+        Diese Website wird als statische Website bereitgestellt, zum Beispiel über GitHub Pages
+        oder einen vergleichbaren Hosting-Anbieter.
       </p>
 
-      <h3>5. Cookies und Tracking</h3>
+      <h3>5. Kontaktformular und E-Mail-Kontakt</h3>
       <p>
-        Diese statische Website verwendet aktuell keine eigenen Tracking-Cookies.
+        Wenn du uns kontaktierst, verarbeiten wir deine Angaben zur Bearbeitung deiner Anfrage.
+        Dazu gehören insbesondere Name, E-Mail-Adresse, Anfrageart und Nachricht.
+      </p>
+
+      <h3>6. Externe Links</h3>
+      <p>
+        Diese Website enthält Links zu externen Plattformen wie eBay und Instagram.
+        Für die dortige Datenverarbeitung ist der jeweilige Anbieter verantwortlich.
+      </p>
+
+      <h3>7. Cookies und Tracking</h3>
+      <p>
+        Diese Website verwendet im aktuellen Stand keine eigenen Tracking-Cookies und keine Analyse-Tools wie Google Analytics.
+      </p>
+
+      <h3>8. Deine Rechte</h3>
+      <ul>
+        <li>Recht auf Auskunft</li>
+        <li>Recht auf Berichtigung</li>
+        <li>Recht auf Löschung</li>
+        <li>Recht auf Einschränkung der Verarbeitung</li>
+        <li>Recht auf Datenübertragbarkeit</li>
+        <li>Recht auf Widerspruch</li>
+        <li>Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde</li>
+      </ul>
+
+      <h3>9. Widerspruch gegen Werbe-E-Mails</h3>
+      <p>
+        Der Nutzung der im Impressum veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung wird widersprochen.
       </p>
 
       <p class="legal-note">
-        Hinweis: Diese Datenschutzerklärung ist eine Vorlage und ersetzt keine Rechtsberatung.
+        Diese Vorlage ist auf deinen aktuellen statischen Website-Stand zugeschnitten. Wenn du später Zahlungsdienste, Newsletter, Tracking oder Widgets einbaust, muss die Datenschutzerklärung erweitert werden.
       </p>
     `
   },
@@ -780,7 +867,7 @@ const legalContent = {
     body: `
       <h3>Frankonia Trading Cards</h3>
       <p>
-        Für Fragen zu Karten, Verkäufen, Ankauf oder Versand erreichst du uns über:
+        Für Fragen zu Karten, Verkäufen, Ankauf, Versand oder Pokémon- und Football-Anfragen erreichst du uns über folgende Wege:
       </p>
 
       <h3>E-Mail</h3>
@@ -792,8 +879,15 @@ const legalContent = {
 
       <h3>Instagram</h3>
       <p>
-        <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank">
+        <a href="https://www.instagram.com/frankonia_trading_cards/" target="_blank" rel="noreferrer">
           @frankonia_trading_cards
+        </a>
+      </p>
+
+      <h3>eBay</h3>
+      <p>
+        <a href="https://www.ebay.de/usr/frankonia_trading_cards" target="_blank" rel="noreferrer">
+          frankonia_trading_cards auf eBay
         </a>
       </p>
     `
@@ -801,6 +895,8 @@ const legalContent = {
 };
 
 function openLegalModal(type) {
+  if (!legalModal || !legalModalTitle || !legalModalBody) return;
+
   const content = legalContent[type];
 
   if (!content) return;
@@ -813,6 +909,8 @@ function openLegalModal(type) {
 }
 
 function closeLegalModal() {
+  if (!legalModal) return;
+
   legalModal.classList.remove("active");
   legalModal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
@@ -824,23 +922,23 @@ document.querySelectorAll("[data-modal]").forEach(button => {
   });
 });
 
-legalModalClose.addEventListener("click", closeLegalModal);
+if (legalModalClose) {
+  legalModalClose.addEventListener("click", closeLegalModal);
+}
 
-legalModal.addEventListener("click", e => {
-  if (e.target === legalModal) {
-    closeLegalModal();
-  }
-});
+if (legalModal) {
+  legalModal.addEventListener("click", e => {
+    if (e.target === legalModal) {
+      closeLegalModal();
+    }
+  });
+}
 
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && legalModal.classList.contains("active")) {
+  if (e.key === "Escape" && legalModal && legalModal.classList.contains("active")) {
     closeLegalModal();
   }
 });
-
-/* =========================
-   PARALLAX BACKGROUND
-========================= */
 
 (() => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
