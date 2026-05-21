@@ -7,7 +7,7 @@
   <title>Pokémon Cards | Frankonia Trading Cards</title>
   <meta name="description" content="Pokémon Trading Cards bei Frankonia Trading Cards – besondere Karten, Sammlerstücke und faire Abwicklung.">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=8">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
 
@@ -507,13 +507,22 @@
 </a>
 
 <nav class="navbar">
-  <ul>
-    <li><a href="index.html#home">Home</a></li>
-    <li><a href="index.html#shop">Football</a></li>
+  <a href="index.html" class="nav-brand">Frankonia Trading Cards</a>
+
+  <button class="burger-button" id="burgerButton" aria-label="Menü öffnen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
     <li><a href="pokemon.html">Pokémon</a></li>
-    <li><a href="index.html#hall">Hall of Fame</a></li>
-    <li><a href="index.html#about">Über uns</a></li>
-    <li><a href="index.html#kontakt">Kontakt</a></li>
+    <li><a href="guide.html">Guide</a></li>
+    <li><a href="hall-of-fame.html">Hall of Fame</a></li>
+    <li><a href="about.html">Über uns</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
   </ul>
 </nav>
 
@@ -744,8 +753,8 @@
     <p><strong>Frankonia Trading Cards</strong> · Pokémon Bereich</p>
 
     <div class="legal-links">
-      <a class="legal-link" href="index.html#home">Zurück zur Hauptseite</a>
-      <a class="legal-link" href="index.html#kontakt">Kontakt</a>
+      <a class="legal-link" href="index.html">Zurück zur Hauptseite</a>
+      <a class="legal-link" href="kontakt.html">Kontakt</a>
     </div>
   </div>
 </footer>
@@ -840,6 +849,24 @@ Bilder der Karte können direkt als Anhang in dieser Mail ergänzt werden.`
 
   updateParallax();
 })();
+
+/* BURGER MENU */
+const burgerButton = document.getElementById("burgerButton");
+const navMenu = document.getElementById("navMenu");
+
+if (burgerButton && navMenu) {
+  burgerButton.addEventListener("click", () => {
+    burgerButton.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      burgerButton.classList.remove("active");
+      navMenu.classList.remove("active");
+    });
+  });
+}
 </script>
 
 </body>

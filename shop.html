@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Frankonia Trading Cards</title>
-  <meta name="description" content="Frankonia Trading Cards – originale Sportkarten, sichere Abwicklung und starke Sammlerstücke.">
+  <title>Shop | Frankonia Trading Cards</title>
+  <meta name="description" content="Shop von Frankonia Trading Cards – Football Cards, Rookies, Autographs, Parallels und mehr.">
 
   <link rel="stylesheet" href="style.css?v=8">
   <link rel="icon" type="image/png" href="logo.png">
@@ -60,88 +60,41 @@
   </ul>
 </nav>
 
-<section id="home" class="section hero">
-  <div class="hero-badge">✦ Football Cards. Fair. Sicher. Frankonia.</div>
+<section id="shop" class="section shop">
+  <h2>Shop</h2>
 
-  <img src="logo.png" class="logo" id="logo" alt="Frankonia Trading Cards Logo">
-
-  <h1>Frankonia Trading Cards</h1>
-
-  <p class="hero-text">
-    Originale Sportkarten, faire Deals und sicherer Versand.
-    Kein überladener Shop – klare Karten, klare Abwicklung.
+  <p class="section-subline">
+    Aktuelle Football Cards mit Flip-Effekt, Details, Status und direkter Weiterleitung zu eBay.
   </p>
 
-  <div class="hero-actions">
-    <a href="shop.html" class="hero-button red">Zum Shop</a>
-    <a href="kontakt.html" class="hero-button dark">Karte anfragen</a>
-  </div>
-</section>
+  <div class="shop-controls">
+    <div class="shop-search-wrapper">
+      <label for="shopSearch">Karte suchen</label>
+      <input 
+        type="text" 
+        id="shopSearch" 
+        class="shop-search-input" 
+        placeholder="Spieler, Set, Typ oder Status suchen..."
+        autocomplete="off">
+    </div>
 
-<section class="trust" aria-label="Vorteile">
-  <article class="trust-card">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 3l7 3v5c0 5-3.2 8.6-7 10-3.8-1.4-7-5-7-10V6l7-3z" stroke="currentColor" stroke-width="2"/>
-      <path d="M8.5 12l2.2 2.2L15.8 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <h3>100% Originalkarten</h3>
-    <p>Keine Reprints, keine Spielchen. Nur echte Karten mit sauberer Beschreibung.</p>
-  </article>
+    <div class="shop-filter-wrapper">
+      <label for="shopFilter">Kategorie auswählen</label>
 
-  <article class="trust-card">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M3 7h11v10H3V7z" stroke="currentColor" stroke-width="2"/>
-      <path d="M14 11h3l3 3v3h-6v-6z" stroke="currentColor" stroke-width="2"/>
-      <path d="M7 20a2 2 0 100-4 2 2 0 000 4zM17 20a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="2"/>
-    </svg>
-    <h3>Sicherer Versand</h3>
-    <p>Sauber verpackt, geschützt und nachvollziehbar verschickt.</p>
-  </article>
-
-  <article class="trust-card">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-    </svg>
-    <h3>Top bewertet</h3>
-    <p>Vertrauen durch faire Abwicklung und klare Kommunikation.</p>
-  </article>
-</section>
-
-<section class="section about-section">
-  <div class="about-wrapper">
-    <p class="about-kicker">Startseite</p>
-    <h2>Alles rund um Frankonia Trading Cards.</h2>
-    <p class="about-intro">
-      Football Cards, Pokémon, Sammlungshighlights, Guide und Kontakt liegen jetzt sauber auf eigenen Seiten.
-      So bleibt alles übersichtlich und wirkt mehr wie eine echte Website.
-    </p>
-
-    <div class="about-values">
-      <a class="about-value" href="shop.html">
-        <span>🏈</span>
-        <h4>Shop</h4>
-        <p>Aktuelle Football Cards ansehen.</p>
-      </a>
-
-      <a class="about-value" href="pokemon.html">
-        <span>⚡</span>
-        <h4>Pokémon</h4>
-        <p>Eigener Bereich für Pokémon Cards.</p>
-      </a>
-
-      <a class="about-value" href="guide.html">
-        <span>📘</span>
-        <h4>Guide</h4>
-        <p>Begriffe und Grundlagen kurz erklärt.</p>
-      </a>
-
-      <a class="about-value" href="hall-of-fame.html">
-        <span>🏆</span>
-        <h4>Hall of Fame</h4>
-        <p>Highlights aus der Sammlung.</p>
-      </a>
+      <select id="shopFilter" class="shop-filter-select">
+        <option value="Alle">Alle Karten</option>
+        <option value="Rookie">Rookies</option>
+        <option value="Autograph">Autographs</option>
+        <option value="Patch">Patches</option>
+        <option value="Parallel">Parallels</option>
+        <option value="Verfügbar">Verfügbar</option>
+        <option value="Reserviert">Reserviert</option>
+        <option value="Verkauft">Verkauft</option>
+      </select>
     </div>
   </div>
+
+  <div class="card-grid" id="cardGrid"></div>
 </section>
 
 <footer class="legal-footer">
@@ -168,18 +121,179 @@
 </div>
 
 <script>
-const logo = document.getElementById("logo");
+const cards = [
+  {
+    name: "Malik Nabers",
+    image: "MalikNabers.jpg",
+    details: "Rookie • Pink Parallel • 2023 Mosaic",
+    price: "49,99€",
+    type: "Rookie Parallel",
+    status: "Verfügbar",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Taylor Rapp",
+    image: "TaylorRapp.jpg",
+    details: "Red Parallel • 2023 Mosaic",
+    price: "49,99€",
+    type: "Parallel",
+    status: "Reserviert",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Ben Roethlisberger",
+    image: "Ben.jpg",
+    details: "Immortals • 2023 Certified",
+    price: "4,99€",
+    type: "Blue",
+    status: "Verfügbar",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Garrett Wilson",
+    image: "GarrettWilson.jpg",
+    details: "Marquee • 2022 Prizm",
+    price: "4,99€",
+    type: "Pink Parallel",
+    status: "Verfügbar",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Kool-Aid McKinstrey",
+    image: "Kool-Aid.jpg",
+    details: "Red Parallel • Prizm",
+    price: "2,99€",
+    type: "Red Parallel",
+    status: "Verfügbar",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Malik Nabers",
+    image: "Nabers.jpg",
+    details: "Franchise Foundation • 2023 Certified",
+    price: "5,99€",
+    type: "Parallel",
+    status: "Verfügbar",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Brock Bowers",
+    image: "BrockBowers.jpg",
+    details: "The Rookies • 2024 Donruss",
+    price: "10,99€",
+    type: "Rookie",
+    status: "Verfügbar",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  },
+  {
+    name: "Breece Hall",
+    image: "BreeceHall.jpg",
+    details: "Autograph • 2024 Select",
+    price: "49,99€",
+    type: "Autograph",
+    status: "Verkauft",
+    ebay: "https://www.ebay.de/usr/frankonia_trading_cards"
+  }
+];
 
-if (logo) {
-  window.addEventListener("scroll", () => {
-    let scrollY = window.scrollY;
+const cardGrid = document.getElementById("cardGrid");
+const shopFilter = document.getElementById("shopFilter");
+const shopSearch = document.getElementById("shopSearch");
 
-    logo.style.transform = `
-      translateY(${scrollY * 0.2}px)
-      scale(${1 + scrollY * 0.0003})
+function getStatusClass(status) {
+  if (status === "Verfügbar") return "status-verfuegbar";
+  if (status === "Reserviert") return "status-reserviert";
+  if (status === "Verkauft") return "status-verkauft";
+  return "";
+}
+
+function renderCards(filter = "Alle", searchTerm = "") {
+  if (!cardGrid) return;
+
+  cardGrid.innerHTML = "";
+
+  const cleanSearch = searchTerm.trim().toLowerCase();
+
+  const filteredCards = cards.filter(card => {
+    const matchesFilter =
+      filter === "Alle" ||
+      card.type.includes(filter) ||
+      card.status === filter;
+
+    const searchableText = `
+      ${card.name}
+      ${card.details}
+      ${card.price}
+      ${card.type}
+      ${card.status}
+    `.toLowerCase();
+
+    const matchesSearch =
+      cleanSearch === "" ||
+      searchableText.includes(cleanSearch);
+
+    return matchesFilter && matchesSearch;
+  });
+
+  filteredCards.forEach(card => {
+    const isSold = card.status === "Verkauft";
+    const statusClass = getStatusClass(card.status);
+
+    cardGrid.innerHTML += `
+      <div class="card ${isSold ? "sold-card" : ""}">
+        <div class="status-badge ${statusClass}">
+          ${card.status}
+        </div>
+
+        <div class="card-inner">
+          <div class="card-front">
+            <img src="${card.image}" alt="${card.name}">
+            <h3>${card.name}</h3>
+          </div>
+
+          <div class="card-back">
+            <h3>${card.name}</h3>
+            <p>${card.details}</p>
+            <p>${card.price}</p>
+
+            ${
+              isSold
+              ? `<button class="sold-button" disabled>Verkauft</button>`
+              : `<a href="${card.ebay}" target="_blank">
+                   <button>Auf eBay ansehen</button>
+                 </a>`
+            }
+          </div>
+        </div>
+      </div>
     `;
   });
+
+  if (filteredCards.length === 0) {
+    cardGrid.innerHTML = `
+      <p class="no-cards-message">
+        Keine Karten gefunden. Versuch einen anderen Suchbegriff oder eine andere Kategorie.
+      </p>
+    `;
+  }
 }
+
+function updateShopView() {
+  const currentFilter = shopFilter ? shopFilter.value : "Alle";
+  const currentSearch = shopSearch ? shopSearch.value : "";
+
+  renderCards(currentFilter, currentSearch);
+}
+
+if (shopFilter) {
+  shopFilter.addEventListener("change", updateShopView);
+}
+
+if (shopSearch) {
+  shopSearch.addEventListener("input", updateShopView);
+}
+
+renderCards();
 
 /* RECHTLICHE MODALS */
 const legalModal = document.getElementById("legalModal");
